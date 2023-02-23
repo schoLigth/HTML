@@ -1,0 +1,1 @@
+// Script untuk website tugas Pemrograman Berbasis Platform
