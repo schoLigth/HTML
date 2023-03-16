@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="Tgs4">
+<head>
+    <meta charset="">
+    <title>Tugas Praktikum 4</title>
+</head>
+<body>
+    <h3>Tugas Praktikum Empat</h3>
+    <p>Berikut adalah coba untuk input teks dengan menggunakan Java Script</p>
+
+    <button onclick = "myFunction()"> Try it </button>
+
+    <script>
+        function myFunction(){
+            var x = document.getElementById("myText").value;
+            let text = "";
+            for(let i = 0; i < x; i++){
+                text += i + "<br>";
+            }
+            document.getElementById("coba").innerHTML = text;
+
+            x.setAttribute("type", "teks");
+            x.setAttribute("Value", "Just trying!");
+            document.body.appendChild(x);
+        }
+    </script>
+
+    <form >
+        <p>Nama :  <input type="name" id = "input-name" value = ""> </p>
+        <p>NIM : <input type="Input your NIM..."></p>
+        <button id = "save-button"> Go!!! </button>
+
+        <script>
+            const inputs = document.querySelectorAll('input[type = "text"]');
+            const saveButton = document.getElementById('save-button');
+            const inputValues = [];
+
+            saveButton.addEventListener('click', () =>{
+                for(let i = 0; i < inputs.length; i++){
+                    inputValues.push(input[i].value);
+                }
+        }
+
+        </script>
+    </form>
+
+
+</body>
+</html>
