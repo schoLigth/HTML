@@ -1,49 +1,165 @@
 <!DOCTYPE html>
 <html lang="Tgs4">
-<head>
-    <meta charset="">
+  <head>
+    <meta charset="" />
     <title>Tugas Praktikum 4</title>
-</head>
-<body>
+  </head>
+  <body>
     <h3>Tugas Praktikum Empat</h3>
     <p>Berikut adalah coba untuk input teks dengan menggunakan Java Script</p>
 
-    <button onclick = "myFunction()"> Try it </button>
+    <button onclick="myFunction()">Try it</button>
+
+    <input type="radio" name="nyRadio" value="option1" /> Option1
+    <input type="radio" name="myRadio" value="option2" /> Option2
+
+    <input
+      type="radio"
+      name="myRadio"
+      value="option1"
+      onclick="alert('Option 1 selected')"
+    />
+    Option 1 <input type="radio" name="myRadio" value="option2" /> Option 2
+
+    <input type="radio" name="myRadio" value="option1" id="option1" /> Option 1
+    <input type="radio" name="myRadio" value="option2" id="option2" /> Option 2
 
     <script>
-        function myFunction(){
-            var x = document.getElementById("myText").value;
-            let text = "";
-            for(let i = 0; i < x; i++){
-                text += i + "<br>";
-            }
-            document.getElementById("coba").innerHTML = text;
-
-            x.setAttribute("type", "teks");
-            x.setAttribute("Value", "Just trying!");
-            document.body.appendChild(x);
-        }
+      const option1 = document.getElementById("option1");
+      option1.addEventListener("click", () => {
+        alert("Option 1 selected");
+      });
     </script>
 
-    <form >
-        <p>Nama :  <input type="name" id = "input-name" value = ""> </p>
-        <p>NIM : <input type="Input your NIM..."></p>
-        <button id = "save-button"> Go!!! </button>
-
-        <script>
-            const inputs = document.querySelectorAll('input[type = "text"]');
-            const saveButton = document.getElementById('save-button');
-            const inputValues = [];
-
-            saveButton.addEventListener('click', () =>{
-                for(let i = 0; i < inputs.length; i++){
-                    inputValues.push(input[i].value);
-                }
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myText").value;
+        let text = "";
+        for (let i = 0; i < x; i++) {
+          text += i + "<br>";
         }
+        document.getElementById("coba").innerHTML = text;
 
-        </script>
+        x.setAttribute("type", "teks");
+        x.setAttribute("Value", "Just trying!");
+        document.body.appendChild(x);
+      }
+    </script>
+
+    <form>
+      <p>Nama : <input type="name" id="input-name" value="" /></p>
+      <p>NIM : <input type="Input your NIM..." /></p>
+      <button id="save-button">Go!!!</button>
+
+      <script>
+        const inputs = document.querySelectorAll('input[type = "text"]');
+        const saveButton = document.getElementById('save-button');
+        const inputValues = [];
+
+        saveButton.addEventListener('click', () =>{
+            for(let i = 0; i < inputs.length; i++){
+                inputValues.push(input[i].value);
+            }
+        }
+      </script>
     </form>
-
-
-</body>
+  </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript</title>
+  </head>
+  <body>
+    <script>
+      var pil = [];
+      function TampilanPilihan() {
+        var jumPilihan = document.getElementById("jumPilihan").value;
+        var pilihan = "";
+        var button = '<button onclick="call2Func()">Submit</button>';
+
+        for (var i = 1; i <= jumPilihan; i++) {
+          pilihan +=
+            "<p> Pilihan " +
+            i +
+            ': <input type="text" id="input' +
+            i +
+            '"> </p>';
+        }
+        pilihan += button;
+        document.getElementById("pilihan").innerHTML = pilihan;
+      }
+      function call2Func() {
+        Radionbtn();
+        DropDown();
+      }
+
+      function Radionbtn() {
+        var jumPilihan = document.getElementById("jumPilihan").value;
+        var kataPil = "";
+
+        for (var i = 1; i <= jumPilihan; i++) {
+          pil[i - 1] = document.getElementById("input" + i).value;
+          kataPil +=
+            '<p><input type="radio" name="pilihan" value="' +
+            pil[i - 1] +
+            '"> ' +
+            pil[i - 1] +
+            "</p>";
+        }
+        document.getElementById("btnRadio").innerHTML = kataPil;
+      }
+
+      function DropDown() {
+        var jumPilihan = document.getElementById("jumPilihan").value;
+        var kataDrop = "";
+        kataDrop += '<select name="cars" id="cars">';
+        for (let i = 1; i <= jumPilihan; i++) {
+          kataDrop +=
+            '<option value="input' + i + '">' + pil[i - 1] + "</option>";
+        }
+        document.getElementById("dropDown").innerHTML = kataDrop;
+      }
+    </script>
+
+    <label for="username">Nama : </label>
+    <input type="text" id="username" />
+    <p></p>
+    <label for="JumPilihan">Jumlah Pilihan :</label>
+    <input type="number" id="jumPilihan" />
+    <button onclick="TampilanPilihan()">OK</button>
+    <div id="pilihan"></div>
+
+    <div id="btnRadio"></div>
+    <div id="dropDown"></div>
+  </body>
+</html>
+<p>Select a radio button and click on Submit.</p>
+
+Gender:
+<input type="radio" name="gender" value="Male" />Male
+<input type="radio" name="gender" value="Female" />Female
+<input type="radio" name="gender" value="Others" />Others
+
+<br />
+
+<button type="button" onclick="displayRadioValue()">Submit</button>
+
+<br />
+
+<div id="result"></div>
+
+<script>
+  function displayRadioValue() {
+    var ele = document.getElementsByName("gender");
+
+    for (i = 0; i < ele.length; i++) {
+      if (ele[i].checked)
+        document.getElementById("result").innerHTML = "Gender: " + ele[i].value;
+    }
+  }
+</script>
