@@ -19,10 +19,24 @@
             var jumlah = document.getElementById("jumlah").value;
 
             // Make display for input field
-            var pilihanContainer = document.getElementById("pilihan-container);
+            var pilihanContainer = document.getElementById("pilihan-container");
             
             // Removes all previous elements in the container
-            
+			pilihanContainer.innerHTML = "";
+
+			for(var i=1; i <= jumlah; i++) {
+				var label = document.createElement("label");
+				label.innerHTML = "Pilihan" + i+ ": "
+				var input = document.createElement("Inpur")
+				input.type = "text";
+				input.name = "Pilihan" + 1';
+
+				var br = document.createElement("br")
+				pilihanContainer.appendChild(lanel);
+				pilihanContainer.appendChild(input);
+				pilihanContainer.appendChild(br);
+			}
+
         }
     </script>
 </body>
